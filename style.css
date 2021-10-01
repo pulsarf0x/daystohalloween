@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "NightMare";
+    src: url("nightmare.ttf");
+}
+
+body {
+    text-align: center;
+    font-family: "NightMare";
+    background-color: #333;
+}
+
+p {
+    width: 400px;
+    height: 60px;
+    margin: 30px auto;
+    font-size: 40px;
+    background: antiquewhite;
+}
