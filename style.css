@@ -1,18 +1,65 @@
 @font-face {
     font-family: "NightMare";
-    src: url("nightmare.ttf");
+    src: url("assets/fonts/nightmare.ttf");
+}
+
+@font-face {
+    font-family: "bfhorror";
+    src: url("assets/fonts/Beautiful Horror.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    text-align: center;
     font-family: "NightMare";
+    background: url("assets/images/nbc-wallpaper.png") top fixed border-box;
     background-color: #333;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-p {
-    width: 400px;
+body, main {
+    text-align: center;
+}
+
+main {
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 50px;
+}
+
+.frame {
     height: 60px;
-    margin: 30px auto;
+    padding: 5px;
+    margin: 10px 0;
     font-size: 40px;
     background: antiquewhite;
+    box-shadow: -3px -2px 5px #333333 inset;
+}
+
+#xmas {
+    /*display: none; */
+    position: relative;
+    top: -70px;
+    right: -80px;
+    padding: 5px;
+    font-size: 65px;
+    color: red;
+    background: whitesmoke;
+    transform: rotate(-5deg);
+    box-shadow: 5px 5px 5px #333333;
+}
+
+#legend {
+    width: 400px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 30px;
 }
