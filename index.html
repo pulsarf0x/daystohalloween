@@ -33,10 +33,6 @@
         function halloweenMode () {
             let days = daysBeforeHalloween;
 
-            if (daysBeforeHalloween < 100) {
-                days = '0' + daysBeforeHalloween;
-            }
-
             document.title = days + ' DAYS TO HALLOWEEN'
             $xmas.style.display = 'none';
             displayDays(days)
@@ -45,10 +41,6 @@
 
         function christmasMode () {
             let days = daysBeforeXmas;
-
-            if (daysBeforeXmas < 100) {
-                days = '0' + daysBeforeXmas;
-            }
 
             document.title = days + ' DAYS TO XMAS'
             $xmas.style.display = 'inline-block';
@@ -59,12 +51,18 @@
 
         function displayDays (days)
         {
-            let toDisplay = '' + days.split('');
-            console.log(toDisplay);
+            let toDisplay = '';
+
+            if (days < 10) {
+                days = '00' + days
+            }
+            else if (days < 100) {
+                days = '0' + days;
+            }
+
+            toDisplay = '' + days.split('');
 
             for (let i = 0 ; i < days.length ; i++) {
-                console.log(i);
-                console.log($days[i]);
                 $days[i].innerText = days[i];
             }
         }
