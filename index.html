@@ -21,14 +21,21 @@
         const $xmas = document.getElementById('xmas');
 
         const today = new Date();
-        const halloween = new Date('10/31/2021');
-        const christmas = new Date('12/24/2021');
+        const halloween = new Date(`10/31/${today.getFullYear()}`);
+        const christmas = new Date(`12/24/${today.getFullYear()}`);
 
+        if (today > halloween) {
+            halloween.setFullYear(halloween.getFullYear() + 1);
+        }
+
+        if (today > christmas) {
+            christmas.setFullYear(christmas.getFullYear() + 1);
+        }
 
         let truc = true;
 
-        let daysBeforeHalloween = Math.ceil(Math.abs(halloween - today) / (1000 * 60 * 60 * 24));
-        let daysBeforeXmas = Math.ceil(Math.abs(christmas - today) / (1000 * 60 * 60 * 24));
+        const daysBeforeHalloween = Math.ceil(Math.abs(halloween - today) / (1000 * 60 * 60 * 24));
+        const daysBeforeXmas = Math.ceil(Math.abs(christmas - today) / (1000 * 60 * 60 * 24));
 
         function halloweenMode () {
             let days = daysBeforeHalloween;
@@ -36,6 +43,7 @@
             document.title = days + ' DAYS TO HALLOWEEN'
             $xmas.style.display = 'none';
             displayDays(days)
+
             truc = true
         }
 
@@ -46,7 +54,7 @@
             $xmas.style.display = 'inline-block';
             displayDays(days)
 
-            truc=false
+            truc = false
         }
 
         function displayDays (days)
@@ -55,20 +63,19 @@
 
             if (days < 10) {
                 days = '00' + days
-            }
-            else if (days < 100) {
+            } else if (days < 100) {
                 days = '0' + days;
             }
 
-            toDisplay = '' + days.split('');
+            toDisplay = '' + days.toString().split(',');
 
-            for (let i = 0 ; i < days.length ; i++) {
-                $days[i].innerText = days[i];
+            for (let i = 0 ; i < toDisplay.length ; i++) {
+                $days[i].innerText = toDisplay[i];
             }
         }
 
         document.body.onkeyup = (event) => {
-            if(event.keyCode == 32 || event.key === ' '){
+            if (event.keyCode == 32 || event.key === ' ') {
                 if (truc === true) {
                     christmasMode();
                 } else {
